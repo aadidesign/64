@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Successful</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .success-container {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .success-container h1 {
+      color: #1877f2;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .success-container p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="fb-header">
+    <img src="images/facebook-logo.png" alt="Facebook" class="fb-logo" />
+  </div>
+
+  <div class="success-container">
+    <h1>Registration Successful</h1>
+    <p id="welcomeMsg"></p>
+    <p>Now you're part of Facebook. 🎉</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("firstName") || "User";
+    document.getElementById("welcomeMsg").textContent = `Welcome, ${name}!`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GarmentShop - Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: #2c3e50;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ecf0f1 !important;
+    }
+
+    .nav-link {
+      color: #ecf0f1 !important;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: #f39c12 !important;
+    }
+    
+    /* Card Styling */
+    .card {
+      transition: transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .price {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">GarmentShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h2 class="text-center mb-4 fw-bold">Our Products</h2>
+    <div class="row g-4">
+      <!-- Product 1 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://source.unsplash.com/random/600x600/?shirt" class="card-img-top" alt="Shirt">
+          <div class="card-body text-center">
+            <h5 class="card-title">Casual Shirt</h5>
+            <p class="card-text text-muted">Comfortable cotton shirt</p>
+            <p class="price">₹799</p>
+            <a href="product1.html" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 2 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://source.unsplash.com/random/600x600/?t-shirt" class="card-img-top" alt="T-Shirt">
+          <div class="card-body text-center">
+            <h5 class="card-title">Printed T-Shirt</h5>
+            <p class="card-text text-muted">Trendy graphic print</p>
+            <p class="price">₹499</p>
+            <a href="product2.html" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 3 -->
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://source.unsplash.com/random/600x600/?jeans" class="card-img-top" alt="Jeans">
+          <div class="card-body text-center">
+            <h5 class="card-title">Denim Jeans</h5>
+            <p class="card-text text-muted">Classic blue denim</p>
+            <p class="price">₹999</p>
+            <a href="product3.html" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    <div class="container">
+      <p>&copy; 2025 GarmentShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

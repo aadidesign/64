@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Notification</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom notification style */
+    #customNotification {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50; /* Green background */
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      display: none;
+      z-index: 9999;
+    }
+    .btn-close {
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Custom Notification -->
+  <div id="customNotification">
+    <span id="notificationMessage">This is a test notification!</span>
+    <span class="btn-close" onclick="closeNotification()">X</span>
+  </div>
+
+  <div class="container mx-auto p-5">
+    <h2 class="text-xl font-bold">Event Registration Form</h2>
+    <form id="eventForm" class="space-y-4">
+      <div>
+        <label for="eventName" class="block">Event Name:</label>
+        <input type="text" id="eventName" class="border px-4 py-2 w-full" placeholder="Enter event name">
+      </div>
+      <div>
+        <label for="eventDetails" class="block">Event Details:</label>
+        <textarea id="eventDetails" class="border px-4 py-2 w-full" placeholder="Enter event details"></textarea>
+      </div>
+      <div>
+        <label for="scheduleTime" class="block">Schedule Time:</label>
+        <input type="datetime-local" id="scheduleTime" class="border px-4 py-2 w-full">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // Request notification permission on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      if (Notification.permission !== 'granted') {
+        Notification.requestPermission().then(permission => {
+          console.log("Notification permission:", permission);
+        });
+      }
+    });
+
+    const form = document.getElementById('eventForm');
+    const customNotification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+
+    // Handle form submission
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const eventName = document.getElementById('eventName').value.trim();
+      const eventDetails = document.getElementById('eventDetails').value.trim();
+      const scheduleTime = document.getElementById('scheduleTime').value;
+
+      if (!eventName || !eventDetails || !scheduleTime) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      // Show the custom notification
+      notificationMessage.textContent = `${eventName} - ${eventDetails}`;
+      customNotification.style.display = 'block';
+
+      // Show browser notification
+      if (Notification.permission === 'granted') {
+        const notification = new Notification(`📢 ${eventName}`, {
+          body: `${eventDetails}\nClick to view details.`,
+          icon: 'https://cdn-icons-png.flaticon.com/512/1827/1827392.png'
+        });
+
+        notification.onclick = () => {
+          window.location.href = 'event-details.html'; // Redirect to event details page
+        };
+      } else {
+        alert("Please allow notifications from your browser.");
+      }
+
+      // Automatically hide the custom notification after 3 seconds
+      setTimeout(() => {
+        closeNotification();
+      }, 3000);
+
+      // Reset form
+      form.reset();
+    });
+
+    function closeNotification() {
+      customNotification.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

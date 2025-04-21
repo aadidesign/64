@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <div class="container mx-auto p-5">
+    <h2 class="text-xl font-bold mb-4">Event Details</h2>
+
+    <div id="eventDetailsSection" class="bg-white p-4 shadow-md rounded-md">
+      <p><strong>Event Name:</strong> <span id="eventNameDetail">Loading...</span></p>
+      <p><strong>Event Details:</strong> <span id="eventDetailsDetail">Loading...</span></p>
+      <p><strong>Scheduled Time:</strong> <span id="eventTimeDetail">Loading...</span></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const eventData = JSON.parse(localStorage.getItem('eventData'));
+
+      if (eventData) {
+        document.getElementById('eventNameDetail').textContent = eventData.name;
+        document.getElementById('eventDetailsDetail').textContent = eventData.details;
+        document.getElementById('eventTimeDetail').textContent = eventData.time;
+      } else {
+        alert('No event data found!');
+      }
+    });
+  </script>
+</body>
+</html>

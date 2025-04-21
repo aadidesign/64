@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Simple & Clean Image Gallery</h2>
+
+    <div class="upload-box">
+      <input type="file" id="imageUpload" accept="image/*" multiple />
+      <label for="imageUpload" class="upload-btn">Upload Images</label>
+    </div>
+
+    <div id="gallery" class="gallery-grid"></div>
+  </div>
+
+  <!-- Modal Preview -->
+  <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <img id="modalImage" src="" alt="Preview" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

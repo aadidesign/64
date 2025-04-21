@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Example</title>
+</head>
+<body>
+
+  <h2>Enter Your Name</h2>
+  <input type="text" id="username" placeholder="Enter name">
+  <button onclick="setCookie()">Save Name</button>
+
+  <h3 id="greeting"></h3>
+
+  <script>
+    // Function to set a cookie
+    function setCookie() {
+      const name = document.getElementById("username").value;
+      if (name) {
+        // Set cookie to expire in 7 days
+        const d = new Date();
+        d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + d.toUTCString();
+        document.cookie = "username=" + name + ";" + expires + ";path=/";
+
+        alert("Cookie stored successfully!");
+        showGreeting();
+      } else {
+        alert("Please enter a name.");
+      }
+    }
+
+    // Function to get a cookie value by name
+    function getCookie(cname) {
+      const name = cname + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(name) === 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    // Show greeting using the cookie if it exists
+    function showGreeting() {
+      const user = getCookie("username");
+      if (user !== "") {
+        document.getElementById("greeting").innerText = "Welcome back, " + user + "!";
+      }
+    }
+
+    // Show greeting on page load
+    window.onload = showGreeting;
+  </script>
+
+</body>
+</html>

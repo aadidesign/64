@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Storage Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cookie-container">
+        <h1>Cookie Storage Example</h1>
+        <p class="description">This demo shows how to store your name in a browser cookie.</p>
+        
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Enter your name" aria-label="Your name">
+            <button onclick="setCookie()">Save to Cookie</button>
+        </div>
+        
+        <div id="greeting" class="greeting-message"></div>
+        
+        <div class="cookie-info">
+            <p>🔹 After saving, refresh the page (F5) to see your name persist via cookies.</p>
+            <p>🔹 The cookie expires in 7 days.</p>
+            <p id="cookie-status">Current cookie status: <span id="cookie-value">Not set</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
