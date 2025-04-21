@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border 0.3s ease-in-out;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+        }
+        .radio-group label,
+        .checkbox-group label {
+            font-size: 14px;
+            color: #555;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: #FF4136;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+        .terms-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .terms-container label {
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <div class="form-section">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            <span class="error" id="passwordError"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required placeholder="Enter your age" min="1">
+            <span class="error" id="ageError"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <span class="error" id="dobError"></span>
+        </div>
+
+        <div class="form-section">
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+            <span class="error" id="genderError"></span>
+        </div>
+
+        <div class="form-section">
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="">Select your country</option>
+                <option value="USA">United States</option>
+                <option value="UK">United Kingdom</option>
+                <option value="India">India</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+            </select>
+        </div>
+
+        <div class="form-section terms-container">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">I agree to the <a href="#">terms and conditions</a></label>
+            <span class="error" id="agreeError"></span>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        let isValid = true;
+
+        // Clear previous error messages
+        document.querySelectorAll(".error").forEach(error => error.textContent = "");
+
+        // Full Name Validation
+        const name = document.getElementById("name").value;
+        if (name.trim() === "") {
+            document.getElementById("nameError").textContent = "Full Name is required.";
+            isValid = false;
+        }
+
+        // Email Validation
+        const email = document.getElementById("email").value;
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent = "Enter a valid email address.";
+            isValid = false;
+        }
+
+        // Password Validation
+        const password = document.getElementById("password").value;
+        if (password.length < 6) {
+            document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+            isValid = false;
+        }
+
+        // Age Validation
+        const age = document.getElementById("age").value;
+        if (age < 18) {
+            document.getElementById("ageError").textContent = "You must be at least 18 years old.";
+            isValid = false;
+        }
+
+        // Date of Birth Validation
+        const dob = document.getElementById("dob").value;
+        if (!dob) {
+            document.getElementById("dobError").textContent = "Date of Birth is required.";
+            isValid = false;
+        }
+
+        // Gender Validation
+        const gender = document.querySelector('input[name="gender"]:checked');
+        if (!gender) {
+            document.getElementById("genderError").textContent = "Please select your gender.";
+            isValid = false;
+        }
+
+        // Terms and Conditions Checkbox Validation
+        const agree = document.getElementById("agree").checked;
+        if (!agree) {
+            document.getElementById("agreeError").textContent = "You must agree to the terms and conditions.";
+            isValid = false;
+        }
+
+        // If form is valid, submit it
+        if (isValid) {
+            alert("Form submitted successfully!");
+            // Handle form submission, e.g., via AJAX or regular form submission
+        }
+    });
+</script>
+
+</body>
+</html>

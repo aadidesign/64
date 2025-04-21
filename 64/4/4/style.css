@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .gmail-container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    width: 420px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #202124;
+  }
+  
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input:focus, select:focus {
+    border-color: #1a73e8;
+    outline: none;
+  }
+  
+  button {
+    background-color: #1a73e8;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0c59d1;
+  }
+  
+  .form-row.two-column {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .strength-meter {
+    height: 8px;
+    width: 100%;
+    background: #eee;
+    border-radius: 5px;
+    margin-bottom: 16px;
+  }
+  
+  #passwordStrength {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+  }
+  
+  #errorMessages {
+    color: red;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+.field {
+    margin-bottom: 16px;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  
+  .gmail-container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    width: 420px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Added this to center content inside container */
+}
+
+/* Centering the Gmail logo */
+.gmail-container img {
+    /* width: 150px; */
+    margin-bottom: 20px; /* Adds space between the logo and the form */
+}
+
+
+
+
+
+
+
+
+
+
+  

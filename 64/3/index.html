@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="fb-header">
+    <img src="images/facebook-logo.png" alt="Facebook Logo" class="fb-logo" />
+  </div>
+
+  <div class="form-container">
+    <h2>Create a new account</h2>
+    <p>It’s quick and easy.</p>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <div class="name-fields">
+        <input type="text" id="firstName" placeholder="First name" required />
+        <input type="text" id="lastName" placeholder="Surname" required />
+      </div>
+      <span class="error" id="firstNameError"></span>
+      <span class="error" id="lastNameError"></span>
+
+      <input type="text" id="email" placeholder="Mobile number or email address" required />
+      <span class="error" id="emailError"></span>
+
+      <input type="password" id="password" placeholder="New password" required />
+      <span class="error" id="passwordError"></span>
+
+      <label for="dob">Date of birth</label>
+      <input type="date" id="dob" required />
+      <span class="error" id="dobError"></span>
+
+      <label>Gender</label>
+      <div class="gender-fields">
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+        <label><input type="radio" name="gender" value="Male" /> Male</label>
+        <label><input type="radio" name="gender" value="Custom" /> Custom</label>
+      </div>
+      <div id="customGenderDiv" style="display: none;">
+        <input type="text" id="customGender" placeholder="Your gender" />
+      </div>
+      <span class="error" id="genderError"></span>
+
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

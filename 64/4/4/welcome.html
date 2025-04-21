@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f1f3f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .welcome-container {
+      background: #fff;
+      padding: 40px 60px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .welcome-container img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-container h1 {
+      font-size: 28px;
+      color: #202124;
+      margin-bottom: 10px;
+    }
+
+    .welcome-container p {
+      font-size: 18px;
+      color: #5f6368;
+      margin-bottom: 30px;
+    }
+
+    .welcome-container button {
+      padding: 10px 24px;
+      font-size: 16px;
+      background-color: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .welcome-container button:hover {
+      background-color: #1765cc;
+    }
+
+    @media (max-width: 600px) {
+      .welcome-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="Gmail Logo">
+    <h1>Welcome, <span id="userName"></span>!</h1>
+    <p>Your Gmail account has been successfully created.</p>
+    <button onclick="goBack()">Back to Register</button>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("userName") || "User";
+    document.getElementById("userName").textContent = name;
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

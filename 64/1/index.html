@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enhanced TY Timetable</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="container py-4">
+  <h2 class="timetable-title">Third Year Time Table</h2>
+
+  <div class="table-responsive">
+    <table class="table table-bordered text-center align-middle" id="timetable">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>9:00 - 10:00</th>
+          <th>10:00 - 11:00</th>
+          <th>11:00 - 12:00</th>
+          <th>12:00 - 1:00</th>
+          <th>2:00 - 3:00</th>
+          <th>3:00 - 4:00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td><span class="subject-name">DBMS</span><div class="faculty">AM</div></td>
+          <td><span class="subject-name">OS</span><div class="faculty">PK</div></td>
+          <td><span class="subject-name">SE</span><div class="faculty">RS</div></td>
+          <td class="break-slot">Break</td>
+          <td><span class="subject-name">CN</span><div class="faculty">SS</div></td>
+          <td><span class="subject-name">Mini Project</span><div class="faculty">Group</div></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td><span class="subject-name">SE</span><div class="faculty">RS</div></td>
+          <td><span class="subject-name">DBMS</span><div class="faculty">AM</div></td>
+          <td><span class="subject-name">CN</span><div class="faculty">SS</div></td>
+          <td class="break-slot">Break</td>
+          <td><span class="subject-name">OS</span><div class="faculty">PK</div></td>
+          <td><span class="subject-name">Mini Project</span><div class="faculty">Group</div></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td><span class="subject-name">DBMS</span><div class="faculty">AM</div></td>
+          <td><span class="subject-name">CN</span><div class="faculty">SS</div></td>
+          <td><span class="subject-name">SE</span><div class="faculty">RS</div></td>
+          <td class="break-slot">Break</td>
+          <td><span class="subject-name">OS</span><div class="faculty">PK</div></td>
+          <td><span class="subject-name">Guest Lecture</span><div class="faculty">External</div></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td><span class="subject-name">CN Lab</span><div class="faculty">SS</div></td>
+          <td><span class="subject-name">CN Lab</span><div class="faculty">SS</div></td>
+          <td><span class="subject-name">DBMS Lab</span><div class="faculty">AM</div></td>
+          <td class="break-slot">Break</td>
+          <td><span class="subject-name">DBMS Lab</span><div class="faculty">AM</div></td>
+          <td><span class="subject-name">Seminar</span><div class="faculty">Guide</div></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td><span class="subject-name">SE</span><div class="faculty">RS</div></td>
+          <td><span class="subject-name">OS</span><div class="faculty">PK</div></td>
+          <td><span class="subject-name">DBMS</span><div class="faculty">AM</div></td>
+          <td class="break-slot">Break</td>
+          <td><span class="subject-name">CN</span><div class="faculty">SS</div></td>
+          <td><span class="subject-name">Project Discussion</span><div class="faculty">Guide</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Print Button -->
+<button class="btn btn-outline-primary btn-sm print-btn" onclick="window.print()">🖨️ Print</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>

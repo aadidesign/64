@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Timetable</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to print the timetable
+        function printTable() {
+            var printWindow = window.open('', '', 'height=400,width=600');
+            printWindow.document.write('<html><head><title>Railway Timetable</title>');
+            printWindow.document.write('<link rel="stylesheet" href="styles.css" type="text/css">');
+            printWindow.document.write('<style>@media print { .print-btn { display: none; } }</style>'); // Hide print button in the print version
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(document.body.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Highlight the current day in the timetable
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const today = new Date().getDay();
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('#timetable tbody tr').forEach((row) => {
+                if (row.children[0].innerText === days[today]) {
+                    row.classList.add('highlight-today');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Railway Timetable</h1>
+        </header>
+        <table id="timetable">
+            <thead>
+                <tr>
+                    <th>Train No.</th>
+                    <th>Train Name</th>
+                    <th>Station</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                    <th>Duration</th>
+                    <th>Distance (km)</th>
+                    <th>Train Type</th>
+                    <th>Platform</th>
+                    <th>Days of Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12001</td>
+                    <td>Rajdhani Express</td>
+                    <td>New Delhi to Mumbai</td>
+                    <td>10:00 AM</td>
+                    <td>06:00 PM</td>
+                    <td>8h</td>
+                    <td>1450 km</td>
+                    <td>Superfast</td>
+                    <td>2</td>
+                    <td>Daily</td>
+                </tr>
+                <tr>
+                    <td>13009</td>
+                    <td>Shatabdi Express</td>
+                    <td>Delhi to Chandigarh</td>
+                    <td>08:30 AM</td>
+                    <td>12:30 PM</td>
+                    <td>4h</td>
+                    <td>260 km</td>
+                    <td>Express</td>
+                    <td>5</td>
+                    <td>Mon, Wed, Fri</td>
+                </tr>
+                <tr>
+                    <td>15031</td>
+                    <td>Duronto Express</td>
+                    <td>Delhi to Kolkata</td>
+                    <td>02:15 PM</td>
+                    <td>10:00 PM</td>
+                    <td>7h 45m</td>
+                    <td>1500 km</td>
+                    <td>Non-Stop</td>
+                    <td>3</td>
+                    <td>Tue, Thu, Sat</td>
+                </tr>
+                <tr>
+                    <td>11013</td>
+                    <td>Jan Shatabdi</td>
+                    <td>Lucknow to Delhi</td>
+                    <td>05:45 AM</td>
+                    <td>10:30 AM</td>
+                    <td>4h 45m</td>
+                    <td>500 km</td>
+                    <td>Superfast</td>
+                    <td>1</td>
+                    <td>Daily</td>
+                </tr>
+                <tr>
+                    <td>19003</td>
+                    <td>Rajkot Express</td>
+                    <td>Rajkot to Mumbai</td>
+                    <td>07:00 PM</td>
+                    <td>05:30 AM</td>
+                    <td>10h 30m</td>
+                    <td>650 km</td>
+                    <td>Express</td>
+                    <td>4</td>
+                    <td>Mon, Thu, Sat</td>
+                </tr>
+                <tr>
+                    <td>22002</td>
+                    <td>Tejas Express</td>
+                    <td>Delhi to Lucknow</td>
+                    <td>04:00 PM</td>
+                    <td>11:30 PM</td>
+                    <td>7h 30m</td>
+                    <td>550 km</td>
+                    <td>Luxury</td>
+                    <td>6</td>
+                    <td>Daily</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Print button placed at the bottom right -->
+    <button onclick="printTable()" class="print-btn">Print Timetable</button>
+</body>
+</html>

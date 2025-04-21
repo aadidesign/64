@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form - Enhanced UI</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Registration Form</h2>
+      <form id="regForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Enter first name" />
+          <span class="error" id="firstNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter last name" />
+          <span class="error" id="lastNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" placeholder="Company or Institute" />
+          <span class="error" id="organizationError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="hobbies">Hobbies</label>
+          <input type="text" id="hobbies" name="hobbies" placeholder="Reading, Coding, etc." />
+          <span class="error" id="hobbiesError"></span>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

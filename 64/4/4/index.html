@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gmail Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="gmail-container">
+    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="Gmail Logo">
+
+    <form id="registrationForm" class="gmail-form" novalidate>
+      <h1>Create a Google Account</h1>
+
+      <div class="form-row two-column">
+        <div class="field">
+          <input type="text" id="firstName" placeholder="First name" />
+          <small class="error-message" id="error-firstName"></small>
+        </div>
+        <div class="field">
+          <input type="text" id="lastName" placeholder="Last name" />
+          <small class="error-message" id="error-lastName"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <input type="email" id="email" placeholder="Your Gmail address" />
+        <small class="error-message" id="error-email"></small>
+      </div>
+
+      <div class="form-row two-column">
+        <div class="field">
+          <input type="password" id="password" placeholder="Password" />
+          <div class="strength-meter"><div id="passwordStrength"></div></div>
+          <small class="error-message" id="error-password"></small>
+        </div>
+        <div class="field">
+          <input type="password" id="confirmPassword" placeholder="Confirm password" />
+          <small class="error-message" id="error-confirmPassword"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <input type="tel" id="phone" placeholder="Phone number (optional)" />
+      </div>
+
+      <div class="field">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" />
+        <small class="error-message" id="error-dob"></small>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <select id="gender">
+          <option value="">Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+          <option>Prefer not to say</option>
+        </select>
+        <small class="error-message" id="error-gender"></small>
+      </div>
+
+      <div class="form-row">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

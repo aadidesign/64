@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Video Player</h1>
+
+    <!-- Video URL Section -->
+    <div class="input-section">
+      <input type="text" id="videoURL" placeholder="Enter YouTube or video URL" />
+      <button class="button" onclick="loadVideoFromURL()">Load Video</button>
+    </div>
+
+    <!-- Video File Upload Section -->
+    <div class="file-input-container">
+      <input type="file" id="fileInput" accept="video/*" onchange="handleFileUpload()" />
+      <button class="button" onclick="loadVideoFromFile()">Upload Video</button>
+    </div>
+
+    <!-- Video Embed Area -->
+    <div id="videoEmbedContainer">
+      <!-- Video will be dynamically embedded here -->
+    </div>
+
+    <!-- Video Controls -->
+    <div class="controls">
+      <button class="button" onclick="togglePlay()">Play / Pause</button>
+      <button class="button" onclick="toggleMute()">Mute / Unmute</button>
+      <button class="button" onclick="increaseVolume()">Increase Volume</button>
+      <button class="button" onclick="decreaseVolume()">Decrease Volume</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

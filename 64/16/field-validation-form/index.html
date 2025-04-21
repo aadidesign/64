@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Field-Level Validation Form</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Registration Form</h2>
+      <form id="regForm" novalidate>
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" />
+          <span class="error" id="firstnameError"></span>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" />
+          <span class="error" id="lastnameError"></span>
+        </div>
+
+        <!-- Organization -->
+        <div class="form-group">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" placeholder="Enter your organization" />
+          <span class="error" id="organizationError"></span>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="form-group">
+          <label for="hobbies">Hobbies</label>
+          <textarea id="hobbies" name="hobbies" placeholder="Enter your hobbies" rows="4"></textarea>
+          <span class="error" id="hobbiesError"></span>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <div id="output"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Data Entry</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 20px auto;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    #activity-log {
+      width: 60%;
+      margin: 20px auto;
+      border: 1px solid #888;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .btn-submit {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Restaurant Data Entry Form</h2>
+
+  <form id="restaurantForm" onsubmit="submitForm(event)">
+    <table>
+      <tr>
+        <td>Restaurant Name:</td>
+        <td><input type="text" id="name" onchange="logActivity('Name field updated')"></td>
+      </tr>
+      <tr>
+        <td>Location:</td>
+        <td><input type="text" id="location" onchange="logActivity('Location field updated')"></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td>
+          <select id="type" onchange="logActivity('Restaurant type selected')">
+            <option value="">-- Select Type --</option>
+            <option value="Veg">Veg</option>
+            <option value="Non-Veg">Non-Veg</option>
+            <option value="Both">Both</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Seating Capacity:</td>
+        <td><input type="number" id="capacity" onchange="logActivity('Seating capacity updated')"></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><textarea id="desc" onchange="logActivity('Description updated')"></textarea></td>
+      </tr>
+    </table>
+
+    <button class="btn-submit" type="submit">Submit</button>
+  </form>
+
+  <div id="activity-log">
+    <strong>Activity Log:</strong>
+    <ul id="log-list"></ul>
+  </div>
+
+  <script>
+    function logActivity(message) {
+      const logList = document.getElementById("log-list");
+      const li = document.createElement("li");
+      li.textContent = message + " at " + new Date().toLocaleTimeString();
+      logList.appendChild(li);
+    }
+
+    function submitForm(event) {
+      event.preventDefault(); // Prevent form from submitting to server
+      logActivity("Form submitted");
+      alert("Restaurant data submitted successfully!");
+    }
+  </script>
+
+</body>
+</html>
